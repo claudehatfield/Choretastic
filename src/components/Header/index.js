@@ -4,8 +4,8 @@ import "./style.css";
 function Header() {
   return (
 
-<section className="hero is-info is-bold is-medium">
-  <div className="hero-body">
+<section className="hero  is-info is-bold is-medium">
+  <div className="hero-body hero1">
     <div className="container">
       <h1 className="title">
         ChoreTastic

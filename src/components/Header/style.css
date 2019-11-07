@@ -1,6 +1,10 @@
-.hero-body{
+.hero1{
   background-image: url('./img/mowing.jpeg');
   background-repeat: no-repeat;
-  background-position: right;
-  opacity: ;
+  background-size: 50%;
+  
+}
+
+.container{
+  text-align: right;
 }

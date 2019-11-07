@@ -6,7 +6,7 @@ function Navbar() {
 <nav className="navbar is-info is-bold" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
     <a className="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"></img>
+      <h1>CHORETASTIC</h1>
     </a>
 
     <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
