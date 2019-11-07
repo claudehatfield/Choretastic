@@ -6,7 +6,7 @@ The intent of the application is to provide parents and children and easy way to
 
 I think this is a valuable tool to help children learn that hard work pays off in the end.
 
-### UI layout with annotations 
+### UI layout
 
 #### This is the main landing page.
 
