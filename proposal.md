@@ -8,7 +8,40 @@ I think this is a valuable tool to help children learn that hard work pays off i
 
 ### UI layout with annotations 
 
+#### This is the main landing page.
+
+ ![alt test](./screenshots/landingpage.PNG)
+ 
+#### Shows sign up modal when user selects to sign up
+
+![alt test](./screenshots/signUp.PNG)
+
+#### Shows login Modal if user selects to login
+
+![alt test](./screenshots/login.PNG)
+
+#### Once logged in if child is viewing calendar and task
+
+![alt test](./screenshots/CalendarAsChild.PNG)
+
+#### or if logged in and parent is viewing calendar
+
+![alt test](./screenshots/CalendarAsParent.PNG)
+
+#### if logged in and child is viewing Rewards Page
+
+![alt test](./screenshots/RewardAsChild.PNG)
+
+#### if logged in and parent is viewing Rewards Page
+
+![alt test](./screenshots/RewardAsParent.PNG)
+
+
 ### Group Memebers 
 
 Claude Hatfield - Solo Developer on Project.
+
+### screenshot of project management
+
+![alt test](./screenshots/projectmanagement.PNG)
 
