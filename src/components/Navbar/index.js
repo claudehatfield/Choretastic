@@ -1,28 +1,35 @@
 import React from "react";
 
+
 function Navbar() {
   return (
+<nav className="navbar is-info is-bold" role="navigation" aria-label="main navigation">
+  <div className="navbar-brand">
+    <a className="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"></img>
+    </a>
 
+    <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-      <nav className="navbar navbar-expand-lg text-light">
-          <div className="container">
-              <Link className="navbar-brand" to="/">Google Books</Link>
-              <ul className="navbar-nav">
-                  <li className="nav-item">
-                      <Link
-                          to="/search"
-                          className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
-                      > Search</Link>
-                  </li>
-                  <li className="nav-item">
-                      <Link
-                          to="/saved"
-                          className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                      >Saved</Link>
-                  </li>
-              </ul>
-          </div>
-      </nav>
+    <div className="navbar-end">
+      <div className="navbar-item">
+        <div className="buttons">
+          <a className="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a className="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+</nav>
+
 
   );
 }
