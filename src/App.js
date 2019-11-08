@@ -1,27 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router,  } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Main from "./components/Main";
+import Calendar from "./components/Calendar";
+import Reward from "./components/Reward";
 
-import Footer from "./components/Footer";
-import InfoBody from "./components/InfoBody";
+
 
 
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
-      
-          <Header />
-          
-
-          <InfoBody />
-
-         
-
-          <Footer />
-      </div>
+     <Route exact path="/" component={Main} />
+     <Route exact path="/calendar" component={Calendar} />
+     <Route exact path="/reward" component={Reward} />
     </Router>
   );
 }
