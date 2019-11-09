@@ -1,11 +1,12 @@
 import React from "react";
 
 
+
 function Navbar() {
   return (
 <nav className="navbar is-info is-bold" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
-    <a className="navbar-item" href="https://bulma.io">
+    <a className="navbar-item" href="/">
       <h1>CHORETASTIC</h1>
     </a>
 
@@ -19,10 +20,10 @@ function Navbar() {
     <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons">
-          <a className="button is-primary">
+          <a href = "/signup" id ="signUp" className="button btnsign is-primary">
             <strong>Sign up</strong>
           </a>
-          <a className="button is-light">
+          <a href = "/login" className="button is-light">
             Log in
           </a>
         </div>
@@ -33,5 +34,6 @@ function Navbar() {
 
   );
 }
+
 
 export default Navbar;
