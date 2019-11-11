@@ -11,7 +11,7 @@ function CalendarAdult() {
       <div>
         <Navbar />
             <h1>Adult Site</h1>
-         <Table />
+         
             <ChoreForm />
           <Footer />
       </div>
