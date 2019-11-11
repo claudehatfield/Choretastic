@@ -4,7 +4,7 @@ import React from "react";
 
 function Navbar() {
   return (
-<nav className="navbar is-info is-bold" role="navigation" aria-label="main navigation">
+<nav className="navbar is-success is-bold" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
     <a className="navbar-item" href="/">
       <h1>CHORETASTIC</h1>
