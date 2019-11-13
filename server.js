@@ -56,11 +56,15 @@ app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose
-mongoose.connect('mongodb://localhost:27017/choretastic', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://claude:militia7@ds033579.mlab.com:33579/heroku_6f9f0kv0', {useNewUrlParser: true});
  
 app.get("*", function(req, res){
   res.sendFile(path.join(__dirname, "/client/public", "index.html"));
 })
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("client/build"));
+}
 
 // app.use(function(req, res, next) {
 //   res.locals.success_msg = req.flash('success_msg');
