@@ -76,7 +76,7 @@ class ChoreForm extends Component {
                       <p><span className="badge badge-secondary">{todo.todoValue}</span></p>
                       <p><i className="fa fa-user-circle-o" aria-hidden="true"></i> {todo.todoResponsible}</p>
                       <p className="text-justify">{todo.todoDescription}</p>
-                      <button className="btn btn-danger btn-sm float-right" onClick={this.handleRemoveTodo.bind(this, index)}><span><i className="fa fa-trash-o" aria-hidden="true"></i></span>&nbsp;&nbsp; Delete</button>
+                      <button className="btn btn-danger btn-sm float-right" onClick={this.handleRemoveTodo.bind(this, index)}><span><i className="fa fa-trash-o" aria-hidden="true"></i></span>&nbsp;&nbsp; Finished</button>
                     </li>
                 )}
               </ul>

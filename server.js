@@ -1,31 +1,82 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const bodyParser = require("body-parser");
+const path = require("path");
+const passport = require("passport");
+const users = require("./routes/api/users");
+// const expressLayouts = require('express-ejs-layouts');
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-// Configure body parsing for AJAX requests
+// Passport config
+require("./config/passport")(passport);
+
+
+
+// Passport Config
+// require('./config/passport')(passport);
+
+// DB Config
+const db = require('./config/keys').mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect(
+    "mongodb://claude:militia7@ds141228.mlab.com:41228/heroku_7clpz457",
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+
+// app.use(expressLayouts);
+app.set('view engine', 'ejs');
+
+// Express body parser
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
-// Add routes, both API and view
-app.use(routes);
+// Express session
+// app.use(
+//   session({
+//     secret: 'secret',
+//     resave: true,
+//     saveUninitialized: true
+//   })
+// );
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://user1:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7",
-  {
-    useCreateIndex: true,
-    useNewUrlParser: true
-  }
-);
+// Connect flash
+// app.use(flash());
+app.use(bodyParser.json());
 
-// Start the API server
-app.listen(PORT, () =>
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
+// Connect to MongoDB
+mongoose
+mongoose.connect('mongodb://localhost:27017/choretastic', {useNewUrlParser: true});
+ 
+app.get("*", function(req, res){
+  res.sendFile(path.join(__dirname, "/client/public", "index.html"));
+})
+
+// app.use(function(req, res, next) {
+//   res.locals.success_msg = req.flash('success_msg');
+//   res.locals.error_msg = req.flash('error_msg');
+//   res.locals.error = req.flash('error');
+//   next();
+// });
+
+  // Passport middleware
+app.use(passport.initialize());
+
+// Routes
+app.use("/api/users", users);
+// app.use('/', require('./routes/index.js'));
+app.use('/users', require('./routes/api/users'));
+
+const Port = process.env.PORT || 3001; // process.env.port is Heroku's port if you choose to deploy the app there
+app.listen(Port, () => console.log(`Server up and running on port ${Port} !`));
+
