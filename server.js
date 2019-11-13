@@ -8,7 +8,9 @@ const users = require("./routes/api/users");
 const app = express();
 
 // Passport config
-require("./config/passport")(passport);
+// require("./config/passport")(passport);
+
+const PORT = process.env.PORT || 3001; // process.env.port is Heroku's port if you choose to deploy the app there
 
 
 
@@ -16,28 +18,35 @@ require("./config/passport")(passport);
 // require('./config/passport')(passport);
 
 // DB Config
-const db = require('./config/keys').mongoURI;
+// const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
-mongoose
-  .connect(
-    "mongodb://claude:militia7@ds141228.mlab.com:41228/heroku_7clpz457",
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+// mongoose
+//   .connect(
+    // "mongodb://claude:militia7@ds141228.mlab.com:41228/heroku_7clpz457",
+//     process.env.MONGODB_URI || 
+//     { useNewUrlParser: true }
+//   )
+//   .then(() => console.log('MongoDB Connected'))
+//   .catch(err => console.log(err));
 // Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false
+//   })
+// );
 
 // app.use(expressLayouts);
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("client/build"));
+}
+
 
 // Express session
 // app.use(
@@ -47,24 +56,16 @@ app.use(express.urlencoded({ extended: true }));
 //     saveUninitialized: true
 //   })
 // );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Connect flash
 // app.use(flash());
-app.use(bodyParser.json());
-
-// Connect to MongoDB
-mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://claude:militia7@ds033579.mlab.com:33579/heroku_6f9f0kv0', {useNewUrlParser: true});
  
 app.get("*", function(req, res){
   res.sendFile(path.join(__dirname, "/client/public", "index.html"));
 })
-
-if(process.env.NODE_ENV === "production"){
-  app.use(express.static("client/build"));
-}
 
 // app.use(function(req, res, next) {
 //   res.locals.success_msg = req.flash('success_msg');
@@ -73,14 +74,15 @@ if(process.env.NODE_ENV === "production"){
 //   next();
 // });
 
-  // Passport middleware
-app.use(passport.initialize());
+ 
 
 // Routes
 app.use("/api/users", users);
 // app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/api/users'));
 
-const Port = process.env.PORT || 3001; // process.env.port is Heroku's port if you choose to deploy the app there
-app.listen(Port, () => console.log(`Server up and running on port ${Port} !`));
+// Connect to MongoDB
+// mongoose
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://claude:militia7@ds033579.mlab.com:33579/heroku_6f9f0kv0', {useNewUrlParser: true});
+app.listen(PORT, () => console.log(`Server up and running on port ${PORT} !`));
 
