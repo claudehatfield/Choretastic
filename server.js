@@ -6,7 +6,7 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const app = express();
 require("./config/passport")(passport);
-var Port = process.env.PORT || 3001;
+var PORT = process.env.PORT || 3001;
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -14,7 +14,9 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "client", "build")))
+//if(process.env.NODE_ENV === "production"){
+app.use(express.static(path.join(__dirname, "client/build")))
+//}
 app.use(passport.initialize());
 app.use("/api/users", users);
 
@@ -30,13 +32,13 @@ mongoose
 
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 
 
 
-app.listen(Port, () => console.log(`Server up and running on port ${Port} !`));
+app.listen(PORT, () => console.log(`Server up and running on port ${PORT} !`));
 
 
 
