@@ -10,9 +10,9 @@ class Dashboard extends Component {
 render() {
     const { user } = this.props.auth;
 return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="col s12 center-align">
+      <div style={{ height: "75vh" }} className="">
+        <div className="">
+          <div className="">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               
@@ -25,7 +25,7 @@ return (
                 marginTop: "1rem"
               }}
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              className=""
             >
               Logout
             </button>
