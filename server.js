@@ -14,12 +14,12 @@ app.use(bodyParser.json());
 // DB Config
 // const db = require("./config/keys").mongoURI;
 if (process.env.NODE_ENV === "production") {
+  app.get('*', function (req, res) {
+    const index = path.join(__dirname,'client', 'build', 'index.html');
+    res.sendFile(index);
+  });
+  
   app.use(express.static("client/build/index.html"));
-
-  // app.get('*', function (req, res) {
-  //   const index = path.join(__dirname,'client', 'build', 'index.html');
-  //   res.sendFile(index);
-  // });
 }
 // Connect to MongoDB
 mongoose
