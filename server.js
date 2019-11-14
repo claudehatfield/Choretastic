@@ -14,9 +14,9 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-//if(process.env.NODE_ENV === "production"){
-app.use(express.static(path.join(__dirname, "client/build")))
-//}
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname, "client/build")))
+}
 app.use(passport.initialize());
 app.use("/api/users", users);
 
