@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function Navbar2() {
+function NavbarTwo() {
   return (
 <nav className="navbar is-success is-bold" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
@@ -29,4 +29,4 @@ function Navbar2() {
 }
 
 
-export default Navbar2;
+export default NavbarTwo;
