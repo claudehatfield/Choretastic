@@ -24,16 +24,22 @@ if (process.env.NODE_ENV === "production") {
 // Connect to MongoDB
 mongoose
   .connect(
-    process.env.MONGODB_URI || "mongodb://claude:militia7@ds033579.mlab.com:33579/heroku_6f9f0kv0",
+    process.env.MONGODB_URI || "mongodb://localhost/googlebooks",
     { useNewUrlParser: true }
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
+
+  const port = process.env.PORT || 3001;
+  app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
+
+
+
 // Passport middleware
 app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
-const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
