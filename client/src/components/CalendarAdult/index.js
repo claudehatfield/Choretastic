@@ -1,16 +1,15 @@
 import React from "react";
-import Navbar from "../Navbar/index";
+import Navbar2 from "../NavBar2/index";
 import Footer from "../Footer/index";
 import ChoreForm from "../ChoreForm/index";
-import DashBoard from "../Dashbord/Dashboard";
+
 
 
 function CalendarAdult() {
   return (
       <div>
-        <Navbar />
-            <h1>Adult Site</h1>
-           <DashBoard />
+        <Navbar2 />
+            <h1>Parent Site</h1>
             <ChoreForm />
           <Footer />
       </div>
@@ -18,3 +17,4 @@ function CalendarAdult() {
 }
 
 export default CalendarAdult;
+
