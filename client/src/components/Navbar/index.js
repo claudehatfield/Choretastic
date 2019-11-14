@@ -19,7 +19,7 @@ function Navbar() {
           <Link to = "/register" id ="signUp" className="button btnsign is-primary">
             <strong>Sign Up</strong>
           </Link>
-          <Link to = "/login" className="button is-light">
+          <Link to = "/login" className="button is-warning">
             Log in
           </Link>
         </div>

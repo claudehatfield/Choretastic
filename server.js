@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 
+
 // Connect to MongoDB
 mongoose
   .connect(
@@ -24,6 +25,13 @@ mongoose
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
+
+  app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/users", users);
+
 
 
 
