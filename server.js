@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path")
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -11,27 +12,26 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-// DB Config
-// const db = require("./config/keys").mongoURI;
-if (process.env.NODE_ENV === "production") {
-  app.get('*', function (req, res) {
-    const index = path.join(__dirname,'client', 'build', 'index.html');
-    res.sendFile(index);
-  });
-  
-  app.use(express.static("client/build/index.html"));
-}
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+
 // Connect to MongoDB
 mongoose
   .connect(
-    process.env.MONGODB_URI || "mongodb://localhost/googlebooks",
-    { useNewUrlParser: true }
+    process.env.MONGODB_URI || "mongodb://localhost/choretastic", {
+      useNewUrlParser: true
+    }
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-  const port = process.env.PORT || 3001;
-  app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
 
 
@@ -42,4 +42,3 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
-
