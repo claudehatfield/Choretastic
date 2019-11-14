@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Navbar from "../Navbar/index";
+import Footer from "../Footer/index"
 class Login extends Component {
   constructor() {
     super();
@@ -44,6 +46,9 @@ this.props.loginUser(userData); // since we handle the redirect within our compo
 render() {
     const { errors } = this.state;
 return (
+  <div>
+    <Navbar />
+    <div className = "box">
       <div className="column">
         <div style={{ marginTop: "4rem" }} className="">
           <div className="">
@@ -60,7 +65,7 @@ return (
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+              <div className="input-field column">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -77,7 +82,7 @@ return (
                   {errors.emailnotfound}
                 </span>
               </div>
-              <div className="input-field col s12">
+              <div className="input-field column">
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
@@ -112,6 +117,9 @@ return (
             </form>
           </div>
         </div>
+      </div>
+      </div>
+      <Footer />
       </div>
     );
   }

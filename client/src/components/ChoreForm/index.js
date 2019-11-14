@@ -56,12 +56,12 @@ class ChoreForm extends Component {
 
         
           
-          <h1 className="navbar-brand">
+          <h1 className="title is-1">
             Chores Left To Do:  <span className="badge badge-pill badge-primary">{this.state.todos.length}</span>
           </h1>
         
 
-          <div className="row mt-5">
+          <div className="row mt-5 box">
             <br/>
             <TodoInput onAddTodo={this.handleAddTodo}/>
             <hr/>

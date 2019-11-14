@@ -2,7 +2,8 @@
   "name": "choretastic",
   "version": "0.1.0",
   "private": true,
- 
+  "proxy": "http://localhost:3001",
+
   "dependencies": {
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
@@ -35,12 +36,14 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
+    
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

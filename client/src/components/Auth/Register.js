@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Navbar from "../Navbar/index";
+import Footer from "../Footer/index"
 class Register extends Component {
   constructor() {
     super();
@@ -45,14 +47,15 @@ this.props.registerUser(newUser, this.props.history);
 render() {
     const { errors } = this.state;
 return (
-      <div className="column">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
+ <div>
+     <Navbar/>
+        <div className = "box">
+        <div className="columns">
+          <div className="column">
+            <Link to="/" className="button is-primary">
+              Back to home
             </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+            <div className="column" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
               </h4>
@@ -61,7 +64,7 @@ return (
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+              <div className="input-field column">
                 <input
                   onChange={this.onChange}
                   value={this.state.name}
@@ -75,7 +78,7 @@ return (
                 <label htmlFor="name">Name</label>
                 <span className="red-text">{errors.name}</span>
               </div>
-              <div className="input-field col s12">
+              <div className="input-field column">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -89,7 +92,7 @@ return (
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
               </div>
-              <div className="input-field col s12">
+              <div className="input-field column">
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
@@ -103,7 +106,7 @@ return (
                 <label htmlFor="password">Password</label>
                 <span className="red-text">{errors.password}</span>
               </div>
-              <div className="input-field col s12">
+              <div className="input-field column">
                 <input
                   onChange={this.onChange}
                   value={this.state.password2}
@@ -126,7 +129,7 @@ return (
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="button is-primary"
                 >
                   Sign up
                 </button>
@@ -134,7 +137,11 @@ return (
             </form>
           </div>
         </div>
-      </div>
+        </div>  
+
+        <Footer />
+        </div>   
+      
     );
   }
 }

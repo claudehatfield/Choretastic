@@ -9,7 +9,7 @@ function CalendarAdult() {
   return (
       <div>
         <NavbarTwo />
-            <h1>Parent Site</h1>
+            
             <ChoreForm />
           <Footer />
       </div>
