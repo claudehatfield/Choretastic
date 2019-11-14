@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,OACE,wDAA0C,CAC1C,2BAA4B,CAC5B,mBAEF,CAEA,WACE,gBACF","file":"main.f66018f7.chunk.css","sourcesContent":[".hero1{\r\n  background-image: url('./img/mowing.jpeg');\r\n  background-repeat: no-repeat;\r\n  background-size: 50%;\r\n  \r\n}\r\n\r\n.container{\r\n  text-align: right;\r\n}"]}
