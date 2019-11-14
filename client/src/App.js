@@ -44,7 +44,7 @@ class App extends Component {
     return (
       <Provider store={store}>
       <Router>
-         
+      <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/calendarchild" component={CalendarChild} />
           <Route exact path="/calendarAdult" component={CalendarAdult} />
@@ -53,7 +53,7 @@ class App extends Component {
           {/* <Route exact path="/signup" component={SignUp} /> */}
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Switch>
+          
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
       </Router>
