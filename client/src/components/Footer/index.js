@@ -1,9 +1,10 @@
 import React from "react";
+import "./style.css";
 
 function Footer(){
   return(
 
-<footer className="footer">
+<footer className="footer ">
   <div className="content has-text-centered">
     <p>
       <strong>CHORETASTIC by <a href="https://github.com/claudehatfield">Claude Hatfield</a>.</strong>

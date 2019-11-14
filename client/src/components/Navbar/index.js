@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   return (
 <nav className="navbar is-success is-bold" role="navigation" aria-label="main navigation">
-  <div className="navbar-brand">
+  <div className="navbar-brand ">
     <Link className="navbar-item" to="/">
-      <h1>CHORETASTIC</h1>
+      <h1 className = "title is-4 has-text-white">CHORETASTIC</h1>
     </Link>
 
   </div>
