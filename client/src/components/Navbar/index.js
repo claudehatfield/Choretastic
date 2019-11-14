@@ -17,7 +17,7 @@ function Navbar() {
       <div className="navbar-item">
         <div className="buttons">
           <Link to = "/register" id ="signUp" className="button btnsign is-primary">
-            <strong>Register</strong>
+            <strong>Sign Up</strong>
           </Link>
           <Link to = "/login" className="button is-light">
             Log in
