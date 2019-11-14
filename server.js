@@ -6,6 +6,7 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const app = express();
 require("./config/passport")(passport);
+var Port = process.env.PORT || 3001;
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -33,9 +34,9 @@ app.get("*", (req, res) => {
 });
 
 
-const port = process.env.PORT || 3001;
 
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
+app.listen(Port, () => console.log(`Server up and running on port ${Port} !`));
 
 
 
