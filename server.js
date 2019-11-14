@@ -26,7 +26,7 @@ mongoose
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-  app.use(passport.initialize());
+app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 // Routes
