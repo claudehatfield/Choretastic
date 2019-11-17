@@ -3,6 +3,7 @@ const path = require("path")
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
+const todos = require("./routes/api/toDos")
 const app = express();
 var passport = require("./config/passport");
 var PORT = process.env.PORT || 3001;
@@ -21,6 +22,7 @@ if(process.env.NODE_ENV === "production"){
 
 app.use(passport.initialize());
 app.use("/api/users", users);
+app.use('/api/todos', todos)
 
 
 // Connect to MongoDB

@@ -6,7 +6,6 @@ import CalendarChild from "./components/CalendarChild";
 import CalendarAdult from "./components/CalendarAdult";
 import RewardChild from "./components/RewardChild";
 import RewardAdult from "./components/RewardAdult";
-// import SignUp from "./components/SignUp";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 
@@ -46,15 +45,15 @@ class App extends Component {
       <Router>
       <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/calendarchild" component={CalendarChild} />
-          <Route exact path="/calendarAdult" component={CalendarAdult} />
-          <Route exact path="/rewardchild" component={RewardChild} />
-          <Route exact path="/rewardadult" component={RewardAdult} />
+          <PrivateRoute exact path="/calendarchild" component={CalendarChild} />
+          <PrivateRoute exact path="/calendarAdult" component={CalendarAdult} />
+          <PrivateRoute exact path="/rewardchild" component={RewardChild} />
+          <PrivateRoute exact path="/rewardadult" component={RewardAdult} />
           {/* <Route exact path="/signup" component={SignUp} /> */}
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           
-              <Route exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
       </Router>
       </Provider>
