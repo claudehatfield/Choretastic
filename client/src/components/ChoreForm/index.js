@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getTodos, deleteTodo } from '../../actions/todoActions';
+import PropTypes from 'prop-types';
 
 
 var todos = [
-
+ 
 ]
 
 class ChoreForm extends Component {
+
+  componentDidMount() {
+    this.props.getTodos();
+  }
 
   constructor(props) {
     super(props);
@@ -29,7 +36,9 @@ class ChoreForm extends Component {
 
 
   render() {
+    const { todos } = this.props.todo 
     return (
+
       <div className="column">
 
         
@@ -68,6 +77,7 @@ class ChoreForm extends Component {
  }
 
  class TodoInput extends Component {
+
   constructor(props) {
     super(props);
 
@@ -149,4 +159,12 @@ class ChoreForm extends Component {
   }
 }
 
- export default ChoreForm;
+ChoreForm.propTypes = {
+  getTodos: PropTypes.func.isRequired,
+  todo: PropTypes.object.isRequired
+}
+
+const mapSateToProps = (state) => ({
+  todo: state.todo
+});
+ export default connect(mapSateToProps, { getTodos, deleteTodo })(ChoreForm);

@@ -4,6 +4,7 @@ import rootReducer from "./reducers";
 
 
 const initialState = {};
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
 rootReducer,
