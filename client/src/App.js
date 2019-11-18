@@ -49,11 +49,10 @@ class App extends Component {
           <PrivateRoute exact path="/calendarAdult" component={CalendarAdult} />
           <PrivateRoute exact path="/rewardchild" component={RewardChild} />
           <PrivateRoute exact path="/rewardadult" component={RewardAdult} />
-          {/* <Route exact path="/signup" component={SignUp} /> */}
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </Switch>
       </Router>
       </Provider>

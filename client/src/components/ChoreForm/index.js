@@ -115,7 +115,7 @@ class ChoreForm extends Component {
     return (
       <div className="column">
         <br/><br/><br/>
-        <h4>Add New Todo</h4><br/>
+        <h4>Add New Chore</h4><br/>
         <form onSubmit={this.handleSubmit}>
           <div className="field">
             <input  name="todoTitle"
@@ -151,7 +151,7 @@ class ChoreForm extends Component {
             </div>
           
             <div className="control">
-              <button type="submit" className="button is-primary float-right">Add Todo</button>
+              <button type="submit" className="button is-primary float-right">Add Chore</button>
             </div>
         </form>
       </div>
